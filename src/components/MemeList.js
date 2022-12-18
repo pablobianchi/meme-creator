@@ -1,19 +1,33 @@
 import {NavLink} from 'react-router-dom';
 import MemeListItem from './MemeListItem';
+import React, {useState, useEffect} from 'react';
+
 
 //TODO: armar una grilla responsive y prolija
-//TODO : invocar a la API para traer dinamicamente un listado de Memes
+//TODO: pasar el PATH de la API al .env
 const MemeList = () => {    
+
+    const [memes, setMemes] = useState([]);
+    
+    useEffect(() => {
+
+        if( memes.length == 0 ){
+            fetch("https://api.imgflip.com/get_memes")
+                .then(data => data.json())
+                .then(json => setMemes(json.data.memes))
+                .then( console.log( memes ))
+                .catch(err => console.log('Solicitud fallida', err));    
+        } 
+    }, []);
+
 
     return (
         <div>
+
             <h1>Listado de Memes</h1>
-            <MemeListItem imagen="https://i.imgflip.com/1bgw.jpg" id="1" />
-            <MemeListItem imagen="https://i.imgflip.com/4acd7j.png" id="2" />
-            <MemeListItem imagen="https://i.imgflip.com/2wifvo.jpg" id="3" />
-            <MemeListItem imagen="https://i.imgflip.com/4t0m5.jpg" id="4" />
-            <MemeListItem imagen="https://i.imgflip.com/hmt3v.jpg" id="5" />
-        
+            {memes.map(meme =>(
+                <MemeListItem imagen={meme.url} titulo={meme.name} key={meme.id} id={meme.id} />
+            ))}
             <NavLink to={'/crear-meme'} className="navbar-brand" >Crear Meme</NavLink>
         </div>
 
