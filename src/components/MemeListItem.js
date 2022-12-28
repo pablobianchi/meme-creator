@@ -14,7 +14,7 @@ const MemeListItem = ({imagen, titulo, id}) => {
     return (
         <div>
             <Link to={`crear-meme/${nombre_imagen}`}>
-                <img src={imagen} width="300" height="300"/>
+                <img src={imagen} width="300" height="300"  alt={`IMAGEN${nombre_imagen}`}/>
                 <span>{titulo}</span>
             </Link>
         </div>

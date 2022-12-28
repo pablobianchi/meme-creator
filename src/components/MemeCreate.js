@@ -67,7 +67,7 @@ const MemeCreate = (  ) => {
             <div id="memeUsuario" >
             <p style={textoStyle}>{texto} </p>
                 <figure>
-                    <img src={`https://i.imgflip.com/${id}`} width="300" height="300"/>
+                    <img src={`https://i.imgflip.com/${id}`} width="300" height="300" alt={`IMAGEN${id}`}/>
                 </figure>
             </div>
             <br/>

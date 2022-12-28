@@ -11,11 +11,10 @@ const MemeList = () => {
     
     useEffect(() => {
 
-        if( memes.length == 0 ){
+        if( memes.length === 0 ){
             fetch("https://api.imgflip.com/get_memes")
                 .then(data => data.json())
                 .then(json => setMemes(json.data.memes))
-                .then( console.log( memes ))
                 .catch(err => console.log('Solicitud fallida', err));    
         } 
     }, []);
