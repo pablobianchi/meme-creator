@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route path='/' element={<MemeList/>}/>
         <Route path='/crear-meme/:id' element={<MemeCreate/>}/>
-        
       </Routes>
       </BrowserRouter>
     </div>
