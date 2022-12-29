@@ -1,4 +1,3 @@
-import {NavLink} from 'react-router-dom';
 import MemeListItem from './MemeListItem';
 import React, {useState, useEffect} from 'react';
 
