@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import MemeList from './components/MemeList';
 import MemeCreate from './components/MemeCreate';
 import {BrowserRouter, Route ,Routes} from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
